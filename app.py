@@ -6,40 +6,94 @@
 
 # print(f"My name is {name}, I am {age} years old and I weigh {weight} kg.")
 
-name = input("What is your name? ")
-print("hello", name)
+# method 1
+# name = input("What is your name? ")
+# print(f"hello", {name})
 
-age = int(input("What is your age? "))
-print("You are", age, "years old.")
+# age = int(input("What is your age? "))
+# print(f"You are {age} years old.")
 
-weight = float(input("What is your weight in kg? "))
-print("You weigh", weight, "kg.")
+# weight = float(input("What is your weight in kg? "))
+# print(f"You weigh {weight} kg.")
 
-height = float(input("What is your height in meters? "))    
-print("You are", height, "meters tall.")
+# height = float(input("What is your height in meters? "))    
+# print(f"You are {height}, meters tall.")
 
-FitnessGoal = input("What is your fitness goal? ")
-print("My fitness goal is", FitnessGoal)
+# fitness_goal = input("What is your fitness goal? ")
+# print(f"My fitness goal is {fitness_goal}")
+
+user = [
+        {
+        "name": "Jude",
+        "age": 12,
+        "weight": 40,
+        "height": 1.5,
+        "fitness_goal": "Lose weight"
+    },
+    {
+        "name": "David",
+        "age": 28,
+        "weight": 80,
+        "height": 1.8,
+        "fitness_goal": "Build muscle"
+    },
+    {
+        "name": "Sarah",
+        "age": 31,
+        "weight": 65,
+        "height": 1.6,
+        "fitness_goal": "Improve fitness"
+    }
+]
+
+workouts = [
+            {
+                "workout_name": "Bench Press",
+                "target_muscle": "Chest",
+                "difficulty": "Intermediate",
+                "duration": 30,
+                "exercises": ["Barbell Bench Press", "Dumbbell Bench Press", "Incline Bench Press"]
+            },
+            {
+                "workout_name": "Squats",
+                "target_muscle": "Legs",
+                "difficulty": "Beginner",
+                "duration": 45,
+                "exercises": ["Bodyweight Squats", "Goblet Squats", "Barbell Back Squats"]
+            },
+            {
+                "workout_name": "Deadlifts",
+                "target_muscle": "Back",
+                "difficulty": "Advanced",
+                "duration": 60,
+                "exercises": ["Conventional Deadlift", "Sumo Deadlift", "Romanian Deadlift"]
+            }
+]
+
+for workout in workouts:
+    print(f"Workout Name: {workout['workout_name']}")
 
 
-def calculate_bmi(weight, height):
+def calculate_bmi(user):
+    weight = user["weight"]
+    height = user["height"]
     return weight / (height ** 2)
 
-BMI = calculate_bmi(weight, height)
+for person in user:
+    bmi = calculate_bmi(person)
+    print(f"{person['name']}'s BMI is {bmi}")
 
-print("My BMI is", BMI)
-
-def get_bmi_category(BMI):
-    if BMI < 18.5:
+def get_bmi_category(bmi):
+    if bmi < 18.5:
         return "Underweight"
-    elif BMI < 25:
+    elif bmi < 25:
         return 'Healthy weight'
-    elif BMI < 30:
+    elif bmi < 30:
         return 'Overweight'
     else:
         return 'Obese'
     
-category = get_bmi_category(BMI)
+category = get_bmi_category(bmi)
 print ("BMI category:", category)
 
 def get_recommendation(category):
