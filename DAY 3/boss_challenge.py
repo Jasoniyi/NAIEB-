@@ -1,3 +1,4 @@
+#  DAY 3
 # Gym Membership Console
 gym_member = [
     {
