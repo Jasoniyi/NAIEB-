@@ -68,3 +68,4 @@ Goal: {member['goal']}
 
 
 print(generate_member_summary(members[0]))
+
